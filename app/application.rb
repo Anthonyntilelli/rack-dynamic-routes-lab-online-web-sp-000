@@ -11,7 +11,7 @@ class Application
     else
       # Found
       item_name = req.path.split("/items/").last
-      item = @@items.find{|i| i.name == item_name}
+      found_item = @@items.find{|i| i.name == item_name}
       if item
         resp.status = 200
         resp.write(item.price)
