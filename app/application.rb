@@ -14,7 +14,7 @@ class Application
       found_item = @@items.find{|item| item.name == query}
       if found_item
         resp.status = 200
-        resp.write(item.price)
+        resp.write(found_item.price)
       else 
         resp.status = 400
         resp.write("Item not found")
