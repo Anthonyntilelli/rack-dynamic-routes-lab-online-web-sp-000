@@ -4,7 +4,7 @@ class Application
  
   def call(env)
    resp, req = Rack::Response.new, Rack::Request.new(env)
-    if !req.path.match(/items/)
+    unless req.path.match(/items/)
       resp.status = 404
       resp.write("Route not found")
     else
