@@ -4,7 +4,12 @@ class Application
  
   def call(env)
    resp, req = Rack::Response.new, Rack::Request.new(env)
-    if req.path.match(/items/)
+    if !req.path.match(/items/)
+      resp.status = 404
+      resp.write("Route not found")
+      resp.finish
+    end
+    
       item_name = req.path.split("/items/").last
       if item = @@items.find{|i| i.name == item_name}
         resp.status = 200
@@ -14,9 +19,8 @@ class Application
         resp.write("Item not found")
       end
     else
-      resp.status = 404
-      resp.write("Route not found")
+
     end
-    resp.finish
+    
   end
 end
