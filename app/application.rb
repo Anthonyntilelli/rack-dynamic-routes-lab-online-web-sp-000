@@ -10,7 +10,7 @@ class Application
       resp.write("Route not found")
     else
       # Found
-      found_item = @@items.find{|item| item.name == query}
+      found_item = @@items.find{|item| item.name == req.path.split("/items/").last}
       if found_item
         resp.status = 200
         resp.write(found_item.price)
