@@ -23,16 +23,4 @@ class Application
     resp.finish
   end
 
- 
- 
- 
- 
- 
-    if req.path.match
-    @@songs.each do |song|
-      resp.write "#{song.title}\n"
-    end
- 
-    resp.finish
-  end
 end
