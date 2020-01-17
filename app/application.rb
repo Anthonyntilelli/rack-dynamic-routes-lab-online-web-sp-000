@@ -10,7 +10,6 @@ class Application
       resp.write("Route not found")
     else
       # Found
-      query = req.path.split("/items/").last
       found_item = @@items.find{|item| item.name == query}
       if found_item
         resp.status = 200
